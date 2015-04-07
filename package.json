@@ -1,0 +1,39 @@
+{
+  "name": "my-react",
+  "version": "0.0.1",
+  "description": "my react boilterplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "for",
+    "experiments"
+  ],
+  "author": "mosson",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-webserver": "*",
+    "vinyl-source-stream": "*",
+    "browserify": "*",
+    "reactify": "*",
+    "jasmine": "*",
+    "jest-cli": "*"
+  },
+  "dependencies": {
+    "react": "*",
+    "react-tools": "*"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"],
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
+  }
+}
