@@ -1,7 +1,7 @@
 jest.dontMock("../src/b");
 
 // jestでは読み込まれた先のモジュールまでもがモックオブジェクトとなる
-//jest.dontMock("../src/a");
+jest.dontMock("../src/a");
 
 describe("b", function() {
   var b = require('../src/b');
