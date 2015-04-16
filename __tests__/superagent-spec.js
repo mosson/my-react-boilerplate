@@ -3,7 +3,7 @@ require('superagent-mock')(
   request,
   [
     {
-      pattern: '/success',
+      pattern : '/success',
       fixtures: function () {
         return 'success!';
       },
@@ -14,7 +14,7 @@ require('superagent-mock')(
       }
     },
     {
-      pattern: '/error',
+      pattern : '/error',
       fixtures: function () {
         return 'Error!';
       },
@@ -28,14 +28,12 @@ require('superagent-mock')(
 );
 
 describe('superagentのテストの仕方', function () {
-  it("リクエストがモックされているかどうか", function(){
-    request.get("/success").end(function(err, res){
-      console.log(err, res);
+  it("リクエストがモックされているかどうか", function () {
+    request.get("/success").end(function (err, res) {
       expect(res).toEqual({body: 'success!'});
     });
 
-    request.get("/error").end(function(err, res){
-      console.log(err, res);
+    request.get("/error").end(function (err, res) {
       expect(res).toEqual({body: 'Error!'});
     });
   });
