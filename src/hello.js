@@ -5,7 +5,7 @@ var Promise = require("bluebird");
 var request = require("superagent");
 
 module.exports = React.createClass({
-  render: function(){
+  render: function () {
     return (
       <h1>Hello, {this.props.name}!!</h1>
     );
