@@ -4,7 +4,7 @@ require('superagent-mock')(
   request,
   [
     {
-      pattern: '/success',
+      pattern : '/success',
       fixtures: function () {
         return 0;
       },
@@ -15,7 +15,7 @@ require('superagent-mock')(
       }
     },
     {
-      pattern: '/error',
+      pattern : '/error',
       fixtures: function () {
         return 1;
       },
@@ -28,11 +28,11 @@ require('superagent-mock')(
   ]
 );
 
-describe('Bluebird spec', function(){
-  it('assertion sample', function(){
-    function sampleRequest(url){
-      return new Promise(function(resolve, reject){
-        request.get(url).end(function(err, res){
+describe('Bluebird spec', function () {
+  it('assertion sample', function () {
+    function sampleRequest(url) {
+      return new Promise(function (resolve, reject) {
+        request.get(url).end(function (err, res) {
           if (res.status == 0) {
             resolve('success');
           } else {
@@ -44,19 +44,50 @@ describe('Bluebird spec', function(){
 
     // success pattern
     sampleRequest('/success').then(
-      function(){ // データの中身を検査するわけではないのでこの書き方にしています
+      function () { // データの中身を検査するわけではないのでこの書き方にしています
         expect(1).toBe(1)
       },
-      function(){}
+      function () {
+      }
     );
 
     // error pattern
     sampleRequest('/error').then(
-      function(){},
-      function(){ // データの中身を検査するわけではないのでこの書き方にしています
+      function () {
+      },
+      function () { // データの中身を検査するわけではないのでこの書き方にしています
         expect(1).toBe(1)
       }
     )
 
+  });
+});
+
+describe('非同期テストとステータス', function () {
+  it('ステータスを取得できる', function () {
+    var promise = new Promise(
+      function (resolve, reject) {
+        setTimeout(function () {
+          resolve(1);
+          done();
+        }, 1000000); // 長く設定しても待たされない
+      }
+    );
+
+    expect(promise.isPending()).toEqual(true);
+    expect(promise.isFulfilled()).toEqual(false);
+    expect(promise.isRejected()).toEqual(false);
+
+    setTimeout(function () {
+      expect(promise.isPending()).toEqual(true);
+      expect(promise.isFulfilled()).toEqual(false);
+      expect(promise.isRejected()).toEqual(false);
+    }, 9999999);
+
+    setTimeout(function () {
+      expect(promise.isPending()).toEqual(false);
+      expect(promise.isFulfilled()).toEqual(true);
+      expect(promise.isRejected()).toEqual(false);
+    }, 2000000);
   });
 });
