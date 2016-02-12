@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "entries": "node scripts/list.js",
-    "test": "NODE_PATH=frontend/javascripts:spec/javascripts mocha --compilers js:babel-core/register -R dot -w spec/javascripts/ --recursive",
+    "test": "NODE_PATH=src/javascripts:test/javascripts mocha --compilers js:babel-core/register -R dot -w test/javascripts/ --recursive",
     "build": "node scripts/build.js",
     "watch": "node scripts/watch.js",
     "validate": "npm ls",
