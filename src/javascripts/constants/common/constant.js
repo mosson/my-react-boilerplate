@@ -1,10 +1,12 @@
 'use strict';
 
-const Environemnt = {
+const Environment = {
+  ENTRY_ENDPOINT: '/entries',
+
   ACTIONS: {
     UPDATE : 'Common::Actions::Update',
     DESTROY: 'Common::Actions::Destroy'
   }
 };
 
-export default Environemnt;
+export default Environment;
