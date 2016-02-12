@@ -1,4 +1,4 @@
-iojs v1.6.4
+node >= v4.2.2
 
 ### Prepare
 
@@ -9,13 +9,13 @@ $ npm install
 ### Build
 
 ```
-$ gulp build
+$ npm run build
 ```
 
 ### Dev
 
 ```
-$ gulp watch
+$ npm run watch [-- -e sample]
 ```
 
 ### Test
