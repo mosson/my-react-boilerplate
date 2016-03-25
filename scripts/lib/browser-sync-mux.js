@@ -79,7 +79,7 @@ class MockMux {
       let cache;
 
       Handler.register(
-        path.join('GET', entry),
+        path.join('GET', setting.pattern || entry),
         (res, req, config) => {
           res.setHeader("Content-Type", "text/html");
 

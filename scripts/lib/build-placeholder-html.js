@@ -34,8 +34,8 @@ function read(entry, fulfill, reject, err, text) {
   let dist = config.entries[entry].placeholdPath;
   console.log('[build-placeholder-html] read: ', dist);
 
-  let js = path.join(config.javascript_debug_build_path.replace(config.serve_root_path, ''), entry + '.js');
-  let css = path.join(config.stylesheet_debug_build_path.replace(config.serve_root_path, ''), entry + '.css');
+  let js = '/' + path.join(config.javascript_debug_build_path.replace(config.serve_root_path, ''), entry + '.js');
+  let css = '/' + path.join(config.stylesheet_debug_build_path.replace(config.serve_root_path, ''), entry + '.css');
 
   fs.writeFile(
     dist,
