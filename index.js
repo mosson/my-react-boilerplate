@@ -79,7 +79,7 @@ const config = {
      */
     sample: {
       pattern      : '/sample/*',
-      startPath    : '/sample',
+      startPath    : '/sample/',
       placeholdPath: 'dist/htmls/sample.html',
       preRenderFn  : require('./pre-renders/sample'),
       buildPath    : 'dist/htmls/_sample.html'
@@ -87,7 +87,7 @@ const config = {
 
     sample2: {
       pattern      : '/sample2/*',
-      startPath    : '/sample2',
+      startPath    : '/sample2/',
       placeholdPath: 'dist/htmls/sample2.html',
       preRenderFn  : require('./pre-renders/sample2'),
       buildPath    : 'dist/htmls/_sample2.html'
