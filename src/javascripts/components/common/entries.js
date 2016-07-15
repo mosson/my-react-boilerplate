@@ -1,5 +1,6 @@
 'use strict';
 
+/* @flow */
 import React from 'react';
 import { Component, PropTypes } from 'react';
 

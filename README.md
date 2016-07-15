@@ -23,3 +23,9 @@ $ npm run watch [-- -e sample]
 ```
 $ npm test
 ```
+
+### Flow
+
+```
+$ npm run flow
+```

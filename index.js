@@ -91,6 +91,14 @@ const config = {
       placeholdPath: 'dist/htmls/sample2.html',
       preRenderFn  : require('./pre-renders/sample2'),
       buildPath    : 'dist/htmls/_sample2.html'
+    },
+
+    flowtype: {
+      pattern      : '/flowtype/*',
+      startPath    : '/flowtype/',
+      placeholdPath: 'dist/htmls/flowtype.html',
+      preRenderFn  : require('./pre-renders/flowtype'),
+      buildPath    : 'dist/htmls/_flowtype.html'
     }
   }
 

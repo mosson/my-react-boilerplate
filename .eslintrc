@@ -1,7 +1,9 @@
 {
+  "parser": "babel-eslint",
   "plugins": [
     "jasmine",
-    "react"
+    "react",
+    "flowtype"
   ],
   "globals": {
     "$": true,
