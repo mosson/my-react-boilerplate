@@ -1,5 +1,6 @@
 'use strict';
 
+/* @flow */
 import React from 'react';
 import { Component, PropTypes } from 'react';
 
@@ -21,11 +22,17 @@ class Entries extends Component {
   }
 
   _resolveEntries() {
-    return _.map(this.props.entries, entry => {
+    let entries: Array<Object> = this.props.entries;
+
+    return _.map(entries, (entry: { body: string, id: number }) => {
+
+      let id: number = entry.id;
+      let body: string = entry.body;
+
       return (
         <div className="Entries__Entry"
-             key={entry.id}>
-          {entry.body}
+             key={id}>
+          {body}
         </div>
       );
     });

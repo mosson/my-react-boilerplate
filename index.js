@@ -58,7 +58,7 @@ const config = {
   /*
    watchコマンドで使用
    確認用サーバーのモック配信機能のディレクトリを指定
-   モックはすべてJavaScriptで記述される　詳しくはサンプルを配置しているのでそちらを参照
+   モックはすべてJavaScriptで記述される 詳しくはサンプルを配置しているのでそちらを参照
    */
   mock_dir: 'mock',
 
@@ -71,7 +71,7 @@ const config = {
     /*
      keyがエントリーポイント名
 
-     pattern: モック配信のエンドポイントになる　正規表現を使用可能
+     pattern: モック配信のエンドポイントになる 正規表現を使用可能
      startPath: デバッグサーバーが立ち上がった時に最初に開くパス
      placeholdPath: モック配信時の一時ファイルの置き場所
      preRenderFn: build時に予め操作する場合に呼ばれるスクリプト（オプション）
@@ -79,7 +79,7 @@ const config = {
      */
     sample: {
       pattern      : '/sample/*',
-      startPath    : '/sample',
+      startPath    : '/sample/',
       placeholdPath: 'dist/htmls/sample.html',
       preRenderFn  : require('./pre-renders/sample'),
       buildPath    : 'dist/htmls/_sample.html'
@@ -87,10 +87,18 @@ const config = {
 
     sample2: {
       pattern      : '/sample2/*',
-      startPath    : '/sample2',
+      startPath    : '/sample2/',
       placeholdPath: 'dist/htmls/sample2.html',
       preRenderFn  : require('./pre-renders/sample2'),
       buildPath    : 'dist/htmls/_sample2.html'
+    },
+
+    flowtype: {
+      pattern      : '/flowtype/*',
+      startPath    : '/flowtype/',
+      placeholdPath: 'dist/htmls/flowtype.html',
+      preRenderFn  : require('./pre-renders/flowtype'),
+      buildPath    : 'dist/htmls/_flowtype.html'
     }
   }
 
