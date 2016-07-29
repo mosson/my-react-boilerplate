@@ -6,17 +6,9 @@ import { Component, PropTypes } from 'react';
 import Action from 'actions/flowtype/action';
 import Count from 'models/flowtype/count';
 
-type Props = {
-  count: Object
-}
-
-type DefaultProps = {
-  count: Object
-}
-
 class Counter extends Component {
   render() {
-    let clickCount = this.props.count.clicks;
+    let clickCount: number = this.props.count.clicks;
 
     return (
       <button onClick={this._clickHdl.bind(this, clickCount)}>
