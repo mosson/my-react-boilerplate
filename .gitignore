@@ -1,17 +1,5 @@
-node_modules
-.idea
-coverage
-npm-debug.log
-
+dist/*
+public/debug/*
 !.gitkeep
 
-public/debug/**/*
-!public/debug/.gitkeep
-!public/debug/javascripts/.gitkeep
-!public/debug/stylesheets/.gitkeep
-
-dist/**/*
-!dist/htmls/.gitkeep
-!dist/javascripts/.gitkeep
-!dist/stylesheets/.gitkeep
-
+node_modules
