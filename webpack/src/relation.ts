@@ -16,31 +16,31 @@ export const db = {
 };
 
 export class Relation<T> {
-  private buffer: T[];
+  private records: T[];
 
   constructor(...args: T[]) {
-    this.buffer = args;
+    this.records = args;
   }
 
   each(block: (i: T) => any) {
-    return _.each<T>(this.buffer, block);
+    return _.each<T>(this.records, block);
   }
 
   map<TResult>(block: (i: T) => TResult) {
-    return _.map<T, TResult>(this.buffer, block);
+    return _.map<T, TResult>(this.records, block);
   }
 
   find(block: (i: T) => boolean): T | undefined {
-    return _.find<T>(this.buffer, block);
+    return _.find<T>(this.records, block);
   }
 
   where(block: (i: T) => boolean): T[] {
-    return _.filter<T>(this.buffer, block);
+    return _.filter<T>(this.records, block);
   }
 }
 
 export interface QuestionProps {
-  id: number;
+  readonly id: number;
   sentence: string;
 }
 
@@ -53,12 +53,20 @@ export class Question implements QuestionProps {
     );
   }
 
-  public readonly id: number;
-  public readonly sentence: string;
+  constructor(private props: QuestionProps) {
+    
+  }
+  
+  get id(): number {
+    return this.props.id;
+  }
 
-  constructor(props: QuestionProps) {
-    this.id = props.id;
-    this.sentence = props.sentence;
+  get sentence(): string {
+    return this.props.sentence;
+  }
+
+  set sentence(value: string) {
+    this.props.sentence = value;
   }
 
   get answerItems() {
@@ -83,13 +91,23 @@ export class AnswerItem implements AnswerItemProps {
     );
   }
 
-  public readonly id: number;
-  public readonly question_id: number;
-  public readonly sentence: string;
+  constructor(private props: AnswerItemProps) {
+    
+  }
 
-  constructor(props: AnswerItemProps) {
-    this.id = props.id;
-    this.question_id = props.question_id;
-    this.sentence = props.sentence;
+  get id(): number {
+    return this.props.id;
+  }
+
+  get question_id(): number {
+    return this.props.question_id;
+  }
+
+  get sentence(): string {
+    return this.props.sentence;
+  }
+
+  set sentence(value: string) {
+    this.props.sentence = value;
   }
 }
